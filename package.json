@@ -1,5 +1,8 @@
 {
   "name": "md-links",
+  "bin":{
+    "md-links":"cli.js"
+  },
   "version": "0.1.0",
   "description": "Md-links @ Laboratoria",
   "keywords": [

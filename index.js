@@ -21,7 +21,20 @@ const mdLinks = (pathFile) => {
 
         const matchLinks = data.match(regexLink);
 
-        matchLinks.forEach(link => console.log(link))
+        matchLinks.forEach(link => {
+            //console.log(link)
+            const removePunctuation = link.replace(')','').replace('[','')
+            const splitExpression = removePunctuation.split('](')
+
+            const objLinks = {
+                href: splitExpression[1],
+                text: splitExpression[0],
+                file: pathFile,
+            }
+
+            console.log(objLinks.file, objLinks.href, objLinks.text)
+            
+        })
     })
     
 }
