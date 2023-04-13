@@ -1,20 +1,13 @@
-// //este arquivo deve exportar a função mdLinks.
-// function init (){
-//  console.log('FUNÇÃO MD-LINKS')
-// };
-// module.exports = init;
-
-// function lona ( numero) {
-//     console.log(numero)
-//     if( numero > 0){
-//         lona(numero - 1)
-//     }
-// }
-// lona(10)
-
-const fs = require('fs')
+const fs = require('fs');
+const chalk = require('chalk');
 
 const mdLinks = (pathFile) => {
+
+    if(fs.statSync(pathFile).size === 0 || !fs.existsSync(pathFile)){
+        console.log(chalk.red('\u2717'), `O arquivo está vazio ou não existe`)
+        return;
+    }
+
     fs.readFile(pathFile, 'utf8', (err, data) => {
 
         const regexLink = /\[\w+.\w+\]\(\w+.+\)/gmi;
@@ -22,7 +15,7 @@ const mdLinks = (pathFile) => {
         const matchLinks = data.match(regexLink);
 
         matchLinks.forEach(link => {
-            //console.log(link)
+           
             const removePunctuation = link.replace(')','').replace('[','')
             const splitExpression = removePunctuation.split('](')
 
@@ -32,10 +25,26 @@ const mdLinks = (pathFile) => {
                 file: pathFile,
             }
 
-            console.log(objLinks.file, objLinks.href, objLinks.text)
-            
+            accessHTTP(objLinks.href)
+
+           console.log(chalk.green('\u2714'), chalk.grey(objLinks.file), chalk.green(objLinks.href), chalk.grey(objLinks.text))
         })
     })
     
 }
-mdLinks('README.md')
+
+const accessHTTP = (url) => {
+    fetch(url)
+    .then(response => {
+        console.log(url)
+        console.log(response.status)
+        console.log(response.ok)
+    })
+    .catch(err => {
+        console.error(err)
+        console.error(err.code)
+    })
+
+}
+
+module.exports = mdLinks;
