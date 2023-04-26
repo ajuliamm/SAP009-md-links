@@ -20,6 +20,7 @@
   * [Array.prototype.map() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
   * [Array.prototype.filter() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
   * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+  [Cheerio](https://github.com/cheeriojs/cheerio))
 [motor de JavaScript V8 do
 Chrome](https://developers.google.com/v8/)
 [docs oficiais dp `npm install`

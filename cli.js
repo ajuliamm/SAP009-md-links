@@ -1,84 +1,72 @@
-#!/usr/bin/env node 
+#!/usr/bin/env node
 const chalk = require('chalk');
-const mdLinks = require("./index");
+const mdLinks = require("./src/index");
+const stats = require('./src/stats')
 
 
-mdLinks(process.argv[2] )
-    .then(result => {
- 
-        const option = process.argv[3]
+const option = {
+    validate: process.argv.includes('--validate'),
+    stats: process.argv.includes('--stats')
+};
 
-        if(option === '--validate'){
-        result.forEach(element=>{
-            fetch(element.href)
-            .then(objlink => {
-                let ok;
-                let icon;
-                if(objlink.ok){
-                    ok = chalk.green('OK')
-                    icon = chalk.green('\u2714')
-                }
-                else{
-                    ok = chalk.red('FAIL')
-                    icon = chalk.red('\u2717')
-                }
-                console.log(icon, chalk.grey(element.file), chalk.white(element.href), ok, chalk.white(objlink.status), chalk.grey(element.text))
-            })
-            .catch(erro => {
-                if(erro.cause.code ==='ENOTFOUND'){
-                    const erroMessage = 'Link não encontrado';
-                    console.log(chalk.red('\u2717'), chalk.grey(element.file), chalk.white(element.href), chalk.red(erroMessage), chalk.grey(element.text));
-                }
-                else{
-                    const erroMessage = 'Erro no link';
-                    console.log(chalk.red('\u2717'), chalk.grey(element.file), chalk.white(element.href), chalk.red(erroMessage), chalk.grey(element.text));
-                }
-                
-            })
-        });
-        
+const showStats = (arrayLinks) => {
+   
+        stats(arrayLinks)
+        .then(objStats =>{
+             console.log('Total: ', objStats.total);
+             console.log('Unique: ', objStats.unique);
+
+             if (process.argv[4] === '--validate') {
+                 console.log('Broken: ', objStats.broken);
+             }
+        })
+}
+
+const showValidate = (arrayLinks) => {
+    arrayLinks.forEach(objlink => {
+        let ok;
+        let icon;
+        if(objlink.ok){
+            ok = chalk.green('OK');
+            icon = chalk.green('\u2714');
         }
-        else if(option === '--stats'){
-            let hrefList = [];
-            result.forEach(element => {
-                hrefList.push(element.href)
-            })
-            //console.log(hrefList)
-            const uniqueLinks =  new Set(hrefList)
-            console.log('Total: ',hrefList.length)
-            console.log('Unique: ',uniqueLinks.size) 
-
-            if( process.argv[4] === '--validate'){
-                
-            }
-       
-        
+        else{
+            ok = chalk.red('FAIL');
+            icon = chalk.red('\u2717');
         }
-        else if(!option){
-            result.forEach(element => {
-                console.log(chalk.green('\u2714'), chalk.grey(element.file), chalk.green(element.href), chalk.grey(element.text))
-            });
-            
-        }else{
-            console.log(`Comando inválido.`)
-        }
+        console.log(icon, chalk.grey(objlink.file), chalk.white(objlink.href), ok, chalk.white(objlink.status), chalk.grey(objlink.text))
+    })
+}
 
-})
-.catch(error => {
-    console.log('veio para o catch')
-    console.error(error)
-  
-    if(error.code ==='ENOENT'){
-        console.log(`${chalk.red('\u2717')} Não existe tal arquivo ou diretório`)
+const showLinksFile = (arrayLinks) => {
+    arrayLinks.forEach(element => {
+        console.log(chalk.green('\u2714'), chalk.grey(element.file), chalk.green(element.href), chalk.grey(element.text));
+    });
+}
+
+mdLinks(process.argv[2], option)
+.then(result => {
+
+    if (option.stats) {
+        showStats(result);
+    }
+    else if (option.validate) {
+        showValidate(result);
+    }
+    else if (!option.validate) {
+        showLinksFile(result);
+    } else {
+        console.log(`Comando inválido.`);
     }
 })
+.catch(error => {
+    //console.log('veio para o catch');
+    console.error(error);
 
-//extensão
-//arquivo sem link
-//arquivo não encontrado no diretório
-//link não encontrado
-
-
+    if (error.code === 'ENOENT') {
+        console.log(`${chalk.red('\u2717')} Não existe tal arquivo ou diretório`);
+    }
+})
 
 
 
