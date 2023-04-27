@@ -1,4 +1,8 @@
 const chalk = require('chalk');
+
+const MSG_EMPTY_FILE = 'Não há links nesse arquivo!';
+const ERROR_FILE_NOT_MD = new Error('O arquivo fornecido não é .md');
+
 const handleErrorFetch = (erro) => {
     if(erro.cause.code ==='ENOTFOUND'){
         const erroMessage = 'Link não encontrado';
@@ -16,13 +20,16 @@ const handleErrorFetch = (erro) => {
 
 const handleENOENT = (erro) => {
     if(erro.code === 'ENOENT'){
+
         const erroMessage = 'Não existe tal arquivo ou diretório';
         return erroMessage
     }
 }
 
-const handdleErrorFile = (message, file) =>{
-    console.log(chalk.red('\u2717'),chalk.grey(file),':',chalk.red(message))
+const handdleErrorFile = (file) =>{
+
+    const msg = chalk.red('\u2717') + ' ' + chalk.grey(file) + ': ' + chalk.red(MSG_EMPTY_FILE);
+    console.log(msg)
 }
-module.exports = { handleErrorFetch, handdleErrorFile, handleENOENT}
+module.exports = { handleErrorFetch, handdleErrorFile, handleENOENT, ERROR_FILE_NOT_MD}
 

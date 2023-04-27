@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
-
+const {ERROR_FILE_NOT_MD}  = require('./erro.js');
 
 function readDir(pathDir){ 
     return new Promise((resolve)=>{
@@ -22,7 +21,10 @@ function readDir(pathDir){
 }
 
 const readFile = (file) => {
-
+    const isMd = path.extname(file) === '.md';
+    if(!isMd){
+        return Promise.reject(ERROR_FILE_NOT_MD);
+    }
     return fs.promises.readFile(file).then(data => {
         return {file: file, data: data.toString()}
     });

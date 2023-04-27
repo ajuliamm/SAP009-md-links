@@ -1,4 +1,5 @@
 const {readDir, readFile, read} = require("../src/fileSystem.js");
+const { ERROR_FILE_NOT_MD }  = require('../src/erro.js');
 const fs = require('fs');
 jest.mock('fs', () => ({
     promises: {
@@ -36,6 +37,9 @@ describe('readFile', () => {
         expect(fs.promises.readFile).toHaveBeenCalledWith(pathFile);
         expect(mockBuffer.toString).toHaveBeenCalledTimes(1);
     })
+    });
+    it('deve disparar um erro caso o arquivo não seja .md', () => {
+      return expect(readFile('./arquivonaomd.txt')).rejects.toEqual(ERROR_FILE_NOT_MD);
     });
   });
   

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
-const mdLinks = require("./src/index");
-const stats = require('./src/stats')
+const mdLinks = require("./src/md-links.js");
+const { statsFunction } = require('./src/optionsLinks.js')
 
 
 const option = {
@@ -11,7 +11,7 @@ const option = {
 
 const showStats = (arrayLinks) => {
    
-        stats(arrayLinks)
+        statsFunction(arrayLinks)
         .then(objStats =>{
              console.log('Total: ', objStats.total);
              console.log('Unique: ', objStats.unique);
@@ -59,13 +59,13 @@ mdLinks(process.argv[2], option)
         console.log(`Comando inválido.`);
     }
 })
-.catch(error => {
+.catch(erro => {
     //console.log('veio para o catch');
-    console.error(error);
 
-    if (error.code === 'ENOENT') {
+    if (erro.code === 'ENOENT') {
         console.log(`${chalk.red('\u2717')} Não existe tal arquivo ou diretório`);
     }
+    console.log(erro.message)
 })
 
 
