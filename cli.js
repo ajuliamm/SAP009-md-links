@@ -46,7 +46,6 @@ const showLinksFile = (arrayLinks) => {
 
 mdLinks(process.argv[2], option)
 .then(result => {
-
     if (option.stats) {
         showStats(result);
     }
@@ -61,11 +60,11 @@ mdLinks(process.argv[2], option)
 })
 .catch(erro => {
     //console.log('veio para o catch');
-
     if (erro.code === 'ENOENT') {
         console.log(`${chalk.red('\u2717')} Não existe tal arquivo ou diretório`);
     }
     console.log(erro.message)
+   
 })
 
 

@@ -1,6 +1,6 @@
 const {handleErrorFetch, handdleErrorFile, handleENOENT} = require('./erro');
 const { read } = require('./fileSystem.js');
-const {statsFunction, validateFunction, getLinks} = require('./optionsLinks')
+const { validateFunction, getLinks} = require('./optionsLinks')
 
 
 

@@ -1,6 +1,7 @@
 const { handdleErrorFile, handleErrorFetch } = require('./erro.js')
 
 const statsFunction = (arrayLinks) => {
+
     return new Promise((resolve)=>{
     let hrefList = [];
     let broken = 0;
@@ -41,15 +42,15 @@ const getLinks = (fileData) => {
               text: splitExpression[0],
               file: fileData.file,
             };
+
            return objLinks;
   
           })
           resolve(arrayLinks);
       }else{
-
-          // reject(handdleErrorFile(fileData.file))
-        const message = 'Não há links no arquivo ou o arquivo está vazio!';
-        handdleErrorFile(fileData.file);
+        reject(handdleErrorFile(fileData.file))
+        // const message = 'Não há links no arquivo ou o arquivo está vazio!';
+        // handdleErrorFile(fileData.file);
       }
     })    
   }
@@ -66,4 +67,5 @@ const getLinks = (fileData) => {
           .catch(erro =>  ({...element, status: handleErrorFetch(erro), ok: false}));
       }));
   }
+
 module.exports = {statsFunction, validateFunction, getLinks};
