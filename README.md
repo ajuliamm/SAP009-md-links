@@ -1,7 +1,7 @@
 # Markdown Links
 
 
-## 1. Resumo do projeto
+## Resumo do projeto
 
 Este projeto foi desenvolvido no Bootcamp de Desenvolvimento Web da Laboratória, onde foi criado uma ferramenta de linha de comando (CLI) assim como
 uma biblioteca em Javascript. Este é um projeto backend onde foi utilizado principalmente as tecnologias Node.Js para o desenvolvimento do código e o Jest para execução dos devidos testes. 
@@ -26,7 +26,7 @@ O principal objetivo dessa biblioteca é realizar leituras de arquivos do tipo M
 ***
 
 
-## 2. Objetivos de aprendizagem
+## Objetivos de aprendizagem
 
 
 - JavaScript
@@ -36,7 +36,7 @@ O principal objetivo dessa biblioteca é realizar leituras de arquivos do tipo M
 - HTTP
 
 
-## 5. Considerações gerais
+## Considerações gerais
 
 ### 1) Instalação
 
@@ -54,7 +54,7 @@ O executável da aplicação pode ser executado da seguinte maneira através do 
 
 O comportamento padrão ao colocar apenas o caminho do arquivo é devolver apenas os links e suas devidas descrições:
 
-    md-links ./arquivo.md
+    md-links ./caminho-do-arquivo/arquivo.md
 
 <div align="center">
  <img alt="terminal com links do arquivo" width="550" src="https://user-images.githubusercontent.com/93016620/235018375-7386acca-36aa-4d45-9a3f-477c82572706.png" /><br>
@@ -66,7 +66,7 @@ O comportamento padrão ao colocar apenas o caminho do arquivo é devolver apena
 
 Se passamos a opção `--validate`, o módulo faz uma requisição HTTP e verifica se o link funciona ou não retornando seus devidos status:
 
-    md-links ./arquivo.md --validate
+    md-links ./caminho-do-arquivo/arquivo.md
 <div align="center">
  <img alt="Terminal com links validados" width="550" src="https://user-images.githubusercontent.com/93016620/235023876-1c4976ba-985b-43ee-9194-c8c74c9c1c98.png" /><br>
 
@@ -74,7 +74,7 @@ Se passamos a opção `--validate`, o módulo faz uma requisição HTTP e verifi
 
 Se passamos a opção `--stats` o output será um texto com estatísticas básicas sobre os links:
 
-    md-links ./arquivo.md --stats
+    md-links ./caminho-do-arquivo/arquivo.md --stats
 
 <div align="center">
  <img alt="Terminal com estatisticas dos links" width="550" src="https://user-images.githubusercontent.com/93016620/235024911-1d7b1a75-b89b-4327-9e52-73da3f0bbf9a.png" /><br>
@@ -84,7 +84,7 @@ Se passamos a opção `--stats` o output será um texto com estatísticas básic
 
 Para obter estatísticas que necessitem dos resultados da validação pode combinar `--stats` e `--validate`:
          
-      md-links ./arquivo.md --stats --validate
+      md-links ./caminho-do-arquivo/arquivo.md --stats --validate
    
 <div align="center">
  <img alt="Terminal com links validados" width="550" src="https://user-images.githubusercontent.com/93016620/235025908-9a7d5cda-9a20-42c0-a2a7-2e18bdd29050.png" /><br>
