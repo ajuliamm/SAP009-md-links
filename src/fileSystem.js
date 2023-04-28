@@ -43,7 +43,11 @@ const read = (pathFile) =>{
 
 
 
-module.exports = {readDir, readFile, read}
+module.exports = {
+    readDir, 
+    readFile, 
+    read
+}
 
 
  
