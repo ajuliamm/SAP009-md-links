@@ -47,7 +47,7 @@ O módulo poder ser **instalado** com o seguinte comando:
 
 O executável da aplicação pode ser executado da seguinte maneira através do **terminal**:
 
-    md-links <path-to-file> [options]
+  md-links <path-to-file> [options]
     
 <br>
 O comportamento padrão ao colocar apenas o caminho do arquivo é devolver apenas os links e suas devidas descrições:
@@ -106,8 +106,9 @@ O planejamento do desenvolvimento do projeto foi feito através do fluxograma ab
 A execução dos testes foi feito através do `Jest` e todos foram aprovados com 100% de cobertura. 
 
 <div align="center">
- <img alt="Fluxograma" width="550" src="https://user-images.githubusercontent.com/93016620/235030796-11603a4f-1c93-4aef-aae4-831af63afc4e.png" /><br>
+ <img alt="Fluxograma" width="550" src="https://user-images.githubusercontent.com/93016620/235248786-089c4eea-c8ba-4cac-9214-2c32992dedf7.png" /><br>
 </div>
+
 
 
 
