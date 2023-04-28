@@ -11,8 +11,6 @@ O principal objetivo dessa biblioteca é realizar leituras de arquivos do tipo M
 
 ***
 <div align="center">
- 
-  <br>
   <br>
   <img align="center" alt="Jest" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" /> 
   <img align="center" alt="git" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
@@ -51,34 +49,36 @@ O executável da aplicação pode ser executado da seguinte maneira através do 
 
     md-links <path-to-file> [options]
     
-
+<br>
 O comportamento padrão ao colocar apenas o caminho do arquivo é devolver apenas os links e suas devidas descrições:
 
     md-links ./caminho-do-arquivo/arquivo.md
 
 <div align="center">
- <img alt="terminal com links do arquivo" width="550" src="https://user-images.githubusercontent.com/93016620/235018375-7386acca-36aa-4d45-9a3f-477c82572706.png" /><br>
+ <img alt="terminal com links do arquivo" width="900" src="https://user-images.githubusercontent.com/93016620/235018375-7386acca-36aa-4d45-9a3f-477c82572706.png" /><br>
   
 </div>
-
+<br>
 
 #### Options: `--validate` e `--stats`
 
-Se passamos a opção `--validate`, o módulo faz uma requisição HTTP e verifica se o link funciona ou não retornando seus devidos status:
+Ao passar a opção `--validate`, o módulo faz uma requisição HTTP e verifica se o link funciona ou não retornando seu devido status:
 
     md-links ./caminho-do-arquivo/arquivo.md
 <div align="center">
- <img alt="Terminal com links validados" width="550" src="https://user-images.githubusercontent.com/93016620/235023876-1c4976ba-985b-43ee-9194-c8c74c9c1c98.png" /><br>
+ <img alt="Terminal com links validados" width="900" src="https://user-images.githubusercontent.com/93016620/235023876-1c4976ba-985b-43ee-9194-c8c74c9c1c98.png" /><br>
 
 </div>
+<br>
 
-Se passamos a opção `--stats` o output será um texto com estatísticas básicas sobre os links:
+Ao passar a opção `--stats` o output será um texto com estatísticas básicas sobre os links, informando a quantidade de links no arquivo e quantos são únicos:
 
     md-links ./caminho-do-arquivo/arquivo.md --stats
 
 <div align="center">
- <img alt="Terminal com estatisticas dos links" width="550" src="https://user-images.githubusercontent.com/93016620/235024911-1d7b1a75-b89b-4327-9e52-73da3f0bbf9a.png" /><br>
+ <img alt="Terminal com estatisticas dos links" width="900" src="https://user-images.githubusercontent.com/93016620/235024911-1d7b1a75-b89b-4327-9e52-73da3f0bbf9a.png" /><br>
  </div>
+ <br>
 
 
 
@@ -87,8 +87,9 @@ Para obter estatísticas que necessitem dos resultados da validação pode combi
       md-links ./caminho-do-arquivo/arquivo.md --stats --validate
    
 <div align="center">
- <img alt="Terminal com links validados" width="550" src="https://user-images.githubusercontent.com/93016620/235025908-9a7d5cda-9a20-42c0-a2a7-2e18bdd29050.png" /><br>
+ <img alt="Terminal com links validados" width="900" src="https://user-images.githubusercontent.com/93016620/235025908-9a7d5cda-9a20-42c0-a2a7-2e18bdd29050.png" /><br>
  </div>
+ <br>
 
 ***
 ## Fluxograma
@@ -98,6 +99,7 @@ O planejamento do desenvolvimento do projeto foi feito através do fluxograma ab
 <div align="center">
  <img alt="Fluxograma" width="550" src="https://user-images.githubusercontent.com/93016620/235028768-f1508eeb-a1f2-4388-a3da-8a74a6281eba.jpeg" /><br>
 </div>
+<br>
 
 ## Testes
 
