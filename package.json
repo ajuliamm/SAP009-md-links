@@ -3,7 +3,7 @@
   "bin": {
     "md-links": "cli.js"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Md-links @ Laboratoria",
   "keywords": [
     "node",
@@ -14,7 +14,7 @@
   "author": "Angelina Melo <ajuliammelo@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=16.x"
+    "node": ">=18.x"
   },
   "bootcamp": {
     "createdAt": "2023-03-30T13:20:37.337Z",

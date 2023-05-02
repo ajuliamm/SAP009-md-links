@@ -27,7 +27,7 @@ const mdLinks = (pathFile, option) => {
             fileContent.forEach((objContent) => {
               getLinks(objContent).then((linksObj) => {
                 resolve(linksObj);
-              });
+              }).catch(reject)
             });
           }
     })
