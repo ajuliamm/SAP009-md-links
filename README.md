@@ -40,7 +40,7 @@ O principal objetivo dessa biblioteca é realizar leituras de arquivos do tipo M
 
 O módulo poder ser **instalado** com o seguinte comando:
 
-    npm install md-links
+    npm install md-links-ajuliamm
        
 
 ### 2) CLI (Command Line Interface - Interface de Linha de Comando)
