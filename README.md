@@ -3,8 +3,7 @@
 
 ## Resumo do projeto
 
-Este projeto foi desenvolvido no Bootcamp de Desenvolvimento Web da Laboratória, onde foi criado uma ferramenta de linha de comando (CLI) assim como
-uma biblioteca em Javascript. Este é um projeto backend onde foi utilizado principalmente as tecnologias Node.Js para o desenvolvimento do código e o Jest para execução dos devidos testes. 
+Foi criado uma ferramenta de linha de comando (CLI) assim como uma biblioteca em Javascript. Este é um projeto backend onde foi utilizado principalmente as tecnologias Node.Js para o desenvolvimento do código e o Jest para execução dos devidos testes. 
 
 O principal objetivo dessa biblioteca é realizar leituras de arquivos do tipo Markdown dentro da sua máquina e verificar a presença de links nestes arquivos. Também é possível verificar se os links são válidos ou não e identificar as suas devidas estatísticas. Esta biblioteca é um executável que pode ser chamado tanto por linha de comando, como também pode ser importado com require para usá-lo em qualquer código. 
 
